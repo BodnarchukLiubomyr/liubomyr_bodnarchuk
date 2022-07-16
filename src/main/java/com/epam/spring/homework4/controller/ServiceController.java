@@ -1,11 +1,13 @@
 package com.epam.spring.homework4.controller;
 
 import com.epam.spring.homework4.controller.dto.ServiceDTO;
+import com.epam.spring.homework4.controller.dto.validation.group.OnCreate;
 import com.epam.spring.homework4.service.ServiceService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +21,7 @@ public class ServiceController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/service")
-    public ServiceDTO createService(@RequestBody ServiceDTO serviceDTO) {
+    public ServiceDTO createService(@RequestBody @Validated(OnCreate.class) ServiceDTO serviceDTO) {
         log.info("accepted request to create service with name:{}", serviceDTO.getService_en());
         return serviceService.create(serviceDTO);
     }
