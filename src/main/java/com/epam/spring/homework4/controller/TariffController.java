@@ -1,5 +1,6 @@
 package com.epam.spring.homework4.controller;
 
+import com.epam.spring.homework4.controller.api.TariffAPI;
 import com.epam.spring.homework4.controller.dto.TariffDTO;
 import com.epam.spring.homework4.controller.dto.validation.group.OnCreate;
 import com.epam.spring.homework4.service.TariffService;
@@ -15,26 +16,24 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-public class TariffController {
+public class TariffController implements TariffAPI {
 
     private final TariffService tariffService;
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/tariff")
-    public TariffDTO createTariff(@RequestBody @Validated(OnCreate.class) TariffDTO tariffDTO) {
+    @Override
+    public TariffDTO createTariff(TariffDTO tariffDTO) {
         log.info("accepted request to create tariff with name:{}", tariffDTO.getName_en());
         return tariffService.create(tariffDTO);
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/tariff")
+    @Override
     public List<TariffDTO> getAllTariffs() {
         log.info("accepted request to get all tariffs");
         return tariffService.getAll();
     }
 
-    @DeleteMapping("/tariff/{tariffId}")
-    public ResponseEntity<Void> deleteTariff(@PathVariable int tariffId) {
+    @Override
+    public ResponseEntity<Void> deleteTariff(int tariffId) {
         log.info("accepted request to delete tariff with id:{}", tariffId);
         tariffService.delete(tariffId);
         return ResponseEntity.noContent().build();

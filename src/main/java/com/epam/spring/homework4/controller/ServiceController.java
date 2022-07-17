@@ -1,5 +1,6 @@
 package com.epam.spring.homework4.controller;
 
+import com.epam.spring.homework4.controller.api.ServiceAPI;
 import com.epam.spring.homework4.controller.dto.ServiceDTO;
 import com.epam.spring.homework4.controller.dto.validation.group.OnCreate;
 import com.epam.spring.homework4.service.ServiceService;
@@ -15,26 +16,24 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-public class ServiceController {
+public class ServiceController implements ServiceAPI {
 
     private final ServiceService serviceService;
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/service")
-    public ServiceDTO createService(@RequestBody @Validated(OnCreate.class) ServiceDTO serviceDTO) {
+    @Override
+    public ServiceDTO createService(ServiceDTO serviceDTO) {
         log.info("accepted request to create service with name:{}", serviceDTO.getService_en());
         return serviceService.create(serviceDTO);
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/service")
+    @Override
     public List<ServiceDTO> getAllServices() {
         log.info("accepted request to get all services");
         return serviceService.getAll();
     }
 
-    @DeleteMapping("/service/{serviceId}")
-    public ResponseEntity<Void> deleteService(@PathVariable int serviceId) {
+    @Override
+    public ResponseEntity<Void> deleteService(int serviceId) {
         log.info("accepted request to delete service with id:{}", serviceId);
         serviceService.delete(serviceId);
         return ResponseEntity.noContent().build();
