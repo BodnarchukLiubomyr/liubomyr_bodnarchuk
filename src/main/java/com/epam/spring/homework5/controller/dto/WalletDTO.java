@@ -15,13 +15,11 @@ import javax.validation.constraints.Null;
 public class WalletDTO {
     @Null(message = "{wallet.id.null}", groups = OnCreate.class)
     @NotNull(message = "{wallet.id.notNull}", groups = OnUpdate.class)
-    Integer id;
+    private Integer id;
 
     @NotNull(message = "{wallet.funds.notNull}", groups = OnCreate.class)
-    @Null(message = "{wallet.funds.null}", groups = OnUpdate.class)
-    BigDecimal funds;
+    private BigDecimal funds;
 
     @NotNull(message = "{wallet.change.notNull}", groups = OnCreate.class)
-    @Null(message = "{wallet.change.null}", groups = OnUpdate.class)
-    BigDecimal change;
+    private BigDecimal change;
 }

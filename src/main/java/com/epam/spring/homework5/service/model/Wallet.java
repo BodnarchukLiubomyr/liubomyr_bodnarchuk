@@ -8,13 +8,13 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 
-@Builder
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,9 +22,6 @@ public class Wallet {
 
     @Column(nullable = false)
     private BigDecimal funds;
-
-    @Column(nullable = false)
-    private BigDecimal change;
 
     @Override
     public boolean equals(Object o) {

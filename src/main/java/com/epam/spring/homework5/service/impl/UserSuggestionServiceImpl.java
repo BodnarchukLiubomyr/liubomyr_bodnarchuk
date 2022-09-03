@@ -21,7 +21,7 @@ import javax.transaction.Transactional;
 @Slf4j
 public class UserSuggestionServiceImpl implements UserSuggestionService {
 
-    private UserSuggestionRepository userSuggestionRepository;
+    private final UserSuggestionRepository userSuggestionRepository;
 
     @Override
     @Transactional
@@ -40,7 +40,7 @@ public class UserSuggestionServiceImpl implements UserSuggestionService {
     @Transactional
     public UserSuggestionDTO create(UserSuggestionDTO userSuggestionDTO) {
         log.info("creating user's suggestion with name:{}", userSuggestionDTO.getName_en());
-        if (userSuggestionRepository.existsByName(userSuggestionDTO.getName_en())) {
+        if (userSuggestionRepository.existsByNameOrId(userSuggestionDTO.getName_en(),userSuggestionDTO.getId())) {
             throw new UserSuggestionAlreadyExistsException();
         }
         UserSuggestion userSuggestion = userSuggestionRepository

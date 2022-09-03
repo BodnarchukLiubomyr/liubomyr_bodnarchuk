@@ -23,8 +23,7 @@ import java.util.Optional;
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
-
+    private final UserRepository userRepository;
 
     @Override
     @Transactional

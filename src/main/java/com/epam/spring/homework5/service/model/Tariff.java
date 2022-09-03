@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -33,7 +35,8 @@ public class Tariff{
     private String description;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(name = "service_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Service service;
 
     @Override

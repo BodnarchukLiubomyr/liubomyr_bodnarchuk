@@ -55,6 +55,6 @@ public class ServiceServiceImpl implements ServiceService {
         if (serviceRepository.existsById(serviceId)) {
             throw new ServiceNotFoundException();
         }
-        serviceRepository.deleteService(serviceId);
+        serviceRepository.deleteById(serviceId);
     }
 }

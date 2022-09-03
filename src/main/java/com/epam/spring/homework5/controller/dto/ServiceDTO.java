@@ -11,8 +11,11 @@ import javax.validation.constraints.Null;
 @Data
 @Builder
 public class ServiceDTO {
-    int id;
+    @Null(message = "{service.id.null}", groups = OnCreate.class)
+    @NotNull(message = "{service.id.notNull}", groups = OnUpdate.class)
+    private Integer id;
+
     @NotNull(message = "{service.service_en.notNull}", groups = OnCreate.class)
     @Null(message = "{service.service_en.null}", groups = OnUpdate.class)
-    String service_en;
+    private String service_en;
 }

@@ -59,7 +59,7 @@ public class TariffServiceImpl implements TariffService {
         if (tariffRepository.existsById(tariffId)) {
             throw new TariffNotFoundException();
         }
-        tariffRepository.deleteTariff(tariffId);
+        tariffRepository.deleteById(tariffId);
     }
 
     @Override

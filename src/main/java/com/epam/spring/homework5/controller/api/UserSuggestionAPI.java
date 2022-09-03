@@ -17,7 +17,6 @@ import javax.validation.constraints.Pattern;
 @Api("User suggestion management API")
 @RequestMapping("api/v1")
 public interface UserSuggestionAPI {
-
     @ApiImplicitParams(
             @ApiImplicitParam(name = "body",
                     paramType = "body",

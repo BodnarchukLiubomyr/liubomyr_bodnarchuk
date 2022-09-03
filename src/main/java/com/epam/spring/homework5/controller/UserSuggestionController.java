@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserSuggestionController implements UserSuggestionAPI {
 
-    private UserSuggestionService userSuggestionService;
+    private final UserSuggestionService userSuggestionService;
 
     @Override
     public UserSuggestionDTO createSuggestion(UserSuggestionDTO userSuggestionDTO) {

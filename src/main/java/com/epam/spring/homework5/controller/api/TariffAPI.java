@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
-import java.util.List;
 
 @Api("Tariff management API")
 @RequestMapping("api/v1")

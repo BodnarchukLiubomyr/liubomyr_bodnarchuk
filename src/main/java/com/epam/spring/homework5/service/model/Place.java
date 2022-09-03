@@ -15,16 +15,16 @@ import java.util.Objects;
 @Builder
 public class Place {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String street;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String district;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String city;
 
     @Override

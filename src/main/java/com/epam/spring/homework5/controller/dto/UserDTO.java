@@ -17,7 +17,9 @@ import javax.validation.constraints.Pattern;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
-    int id;
+    @Null(message = "{user.id.null}", groups = OnCreate.class)
+    @NotNull(message = "{user.id.notNull}", groups = OnUpdate.class)
+    private Integer id;
 
     @NotNull(message = "{user.login.notNull}", groups = OnCreate.class)
     String login;
@@ -40,10 +42,8 @@ public class UserDTO {
     UserDetails details;
 
     @NotNull(message = "{user.place.notNull}", groups = OnCreate.class)
-    @Null(message = "{user.place.null}", groups = OnUpdate.class)
     Place place;
 
     @NotNull(message = "{user.wallet.notNull}", groups = OnCreate.class)
-    @Null(message = "{user.wallet.null}", groups = OnUpdate.class)
     Wallet wallet;
 }

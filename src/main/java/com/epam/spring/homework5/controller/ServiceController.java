@@ -2,15 +2,12 @@ package com.epam.spring.homework5.controller;
 
 import com.epam.spring.homework5.controller.api.ServiceAPI;
 import com.epam.spring.homework5.controller.dto.ServiceDTO;
-import com.epam.spring.homework5.controller.dto.UserDTO;
 import com.epam.spring.homework5.service.ServiceService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @Slf4j

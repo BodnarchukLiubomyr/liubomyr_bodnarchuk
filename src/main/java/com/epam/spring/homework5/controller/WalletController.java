@@ -1,6 +1,7 @@
 package com.epam.spring.homework5.controller;
 
 import com.epam.spring.homework5.controller.api.WalletAPI;
+import com.epam.spring.homework5.controller.dto.PlaceDTO;
 import com.epam.spring.homework5.controller.dto.WalletDTO;
 import com.epam.spring.homework5.service.WalletService;
 import lombok.RequiredArgsConstructor;
@@ -19,4 +20,12 @@ public class WalletController implements WalletAPI {
         log.info("accepted request to get wallet with id:{}", walletId);
         return walletService.getWallet(walletId);
     }
+
+    @Override
+    public WalletDTO updateWallet(WalletDTO walletDTO) {
+        log.info("accepted request to update place with id:{}", walletDTO.getId());
+        return walletService.update(walletDTO);
+    }
+
+
 }

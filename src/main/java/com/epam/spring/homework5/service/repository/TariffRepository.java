@@ -3,6 +3,8 @@ package com.epam.spring.homework5.service.repository;
 import com.epam.spring.homework5.service.model.Service;
 import com.epam.spring.homework5.service.model.Tariff;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,10 +15,8 @@ public interface TariffRepository extends JpaRepository<Tariff,Integer> {
 
     List<Tariff> findByService(Service service);
 
-    boolean existsByNameOrId(String name,Integer id);
+    @Query("select case when count(t)> 0 then true else false end from Tariff t where t.name_en = :name_en or t.id = :id")
+    boolean existsByNameOrId(@Param("name_en")String name_en, @Param("id") Integer id);
 
-    boolean existsByNameOrIdIsNot(String name, Integer id);
-
-    void deleteTariff(Integer id);
-
+    void deleteById(Integer id);
 }
