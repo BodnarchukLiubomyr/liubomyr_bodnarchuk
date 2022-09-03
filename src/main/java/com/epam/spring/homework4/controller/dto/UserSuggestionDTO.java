@@ -12,20 +12,20 @@ import javax.validation.constraints.NotNull;
 @Data
 @Builder
 public class UserSuggestionDTO {
-    int id;
+    private Integer id;
 
     @NotNull(message = "{userSuggestion.name_en.notNull}", groups = OnCreate.class)
-    String name_en;
+    private String name_en;
 
     @NotNull(message = "{userSuggestion.time.notNull}", groups = OnCreate.class)
-    int time;
+    private int time;
 
     @NotNull(message = "{userSuggestion.price.notNull}", groups = OnCreate.class)
-    BigDecimal price;
+    private BigDecimal price;
 
     @NotNull(message = "{userSuggestion.description.notNull}", groups = OnCreate.class)
-    String description;
+    private String description;
 
     @NotNull(message = "{userSuggestion.service.notNull}", groups = OnCreate.class)
-    Service service;
+    private Service service;
 }

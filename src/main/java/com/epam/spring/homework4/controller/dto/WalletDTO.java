@@ -13,13 +13,13 @@ import javax.validation.constraints.Null;
 @Data
 @Builder
 public class WalletDTO {
-    int id;
+    private Integer id;
 
     @NotNull(message = "{wallet.funds.notNull}", groups = OnCreate.class)
     @Null(message = "{wallet.funds.null}", groups = OnUpdate.class)
-    BigDecimal funds;
+    private BigDecimal funds;
 
     @NotNull(message = "{wallet.change.notNull}", groups = OnCreate.class)
     @Null(message = "{wallet.change.null}", groups = OnUpdate.class)
-    BigDecimal change;
+    private BigDecimal change;
 }

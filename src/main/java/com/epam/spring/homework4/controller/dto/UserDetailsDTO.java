@@ -10,19 +10,19 @@ import javax.validation.constraints.Pattern;
 @Data
 @Builder
 public class UserDetailsDTO {
-    int id;
+    private Integer id;
 
     @NotNull(message = "{userDetails.firstnameEn.notNull}", groups = OnCreate.class)
-    String firstnameEn;
+    private String firstnameEn;
 
     @NotNull(message = "{userDetails.lastnameEn.notNull}", groups = OnCreate.class)
-    String lastnameEn;
+    private String lastnameEn;
 
     @Pattern(message = "{user.email.pattern}",
             regexp = "^(?=[a-zA-Z0-9._@%-]{6,255}$)[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$")
     @NotNull(message = "{userDetails.email.notNull}", groups = OnCreate.class)
-    String email;
+    private String email;
 
     @NotNull(message = "{userDetails.phone.notNull}", groups = OnCreate.class)
-    String phone;
+    private String phone;
 }

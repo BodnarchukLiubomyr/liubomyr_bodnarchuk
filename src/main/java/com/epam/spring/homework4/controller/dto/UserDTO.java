@@ -18,33 +18,33 @@ import javax.validation.constraints.Pattern;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
-    int id;
+    private Integer id;
 
     @NotNull(message = "{user.login.notNull}", groups = OnCreate.class)
-    String login;
+    private String login;
 
     @Pattern(message = "{user.password.pattern}",
             regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,32}$")
     @NotNull(message = "{user.password.notNull}", groups = OnCreate.class)
-    String password;
+    private String password;
 
     @Pattern(message = "{user.repeatPassword.pattern}",
             regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,32}$")
     @NotNull(message = "{user.repeatPassword.notNull}", groups = OnCreate.class)
-    String repeatPassword;
+    private String repeatPassword;
 
     @EnumValidator(name = "{user.role.name}",enumClass = Role.class)
     @NotNull(message = "{user.role.notNull}", groups = OnCreate.class)
-    String role;
+    private String role;
 
     @NotNull(message = "{user.details.notNull}", groups = OnCreate.class)
-    UserDetails details;
+    private UserDetails details;
 
     @NotNull(message = "{user.place.notNull}", groups = OnCreate.class)
     @Null(message = "{user.place.null}", groups = OnUpdate.class)
-    Place place;
+    private Place place;
 
     @NotNull(message = "{user.wallet.notNull}", groups = OnCreate.class)
     @Null(message = "{user.wallet.null}", groups = OnUpdate.class)
-    Wallet wallet;
+    private Wallet wallet;
 }

@@ -12,20 +12,20 @@ import java.math.BigDecimal;
 @Data
 @Builder
 public class TariffDTO {
-    int id;
+    private Integer id;
 
     @NotNull(message = "{tariff.name_en.notNull}", groups = OnCreate.class)
-    String name_en;
+    private String name_en;
 
     @NotNull(message = "{tariff.time.notNull}", groups = OnCreate.class)
-    int time;
+    private int time;
 
     @NotNull(message = "{tariff.price.notNull}", groups = OnCreate.class)
-    BigDecimal price;
+    private BigDecimal price;
 
     @NotNull(message = "{tariff.description.notNull}", groups = OnCreate.class)
-    String description;
+    private String description;
 
     @NotNull(message = "{tariff.service.notNull}",groups = OnCreate.class)
-    Service service;
+    private Service service;
 }

@@ -11,7 +11,7 @@ import javax.validation.constraints.Null;
 @Data
 @Builder
 public class PlaceDTO {
-    private int id;
+    private Integer id;
 
     @NotNull(message = "{place.street.notNull}", groups = OnCreate.class)
     @Null(message = "{place.street.null}", groups = OnUpdate.class)
