@@ -1,0 +1,25 @@
+package com.epam.spring.homework5.controller.dto;
+
+import java.math.BigDecimal;
+
+import com.epam.spring.homework5.controller.dto.validation.group.OnCreate;
+import com.epam.spring.homework5.controller.dto.validation.group.OnUpdate;
+import lombok.Builder;
+import lombok.Data;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+
+@Data
+@Builder
+public class WalletDTO {
+    @Null(message = "{wallet.id.null}", groups = OnCreate.class)
+    @NotNull(message = "{wallet.id.notNull}", groups = OnUpdate.class)
+    private Integer id;
+
+    @NotNull(message = "{wallet.funds.notNull}", groups = OnCreate.class)
+    private BigDecimal funds;
+
+    @NotNull(message = "{wallet.change.notNull}", groups = OnCreate.class)
+    private BigDecimal change;
+}
